@@ -1,0 +1,53 @@
+The data types, unit and descriptions of the final data set - "data" are presented below:
+
+df1
+	data frame, identifies the training data set
+df2
+	data frame, identifies the test data set
+subject
+	numeric, identifies the subject code of the person who carried out the experiment. The experiments have been carried 	out with a group of 30 volunteers within an age bracket of 19-48 years
+body_acc_x
+	numeric, identifies the estimated x-axis body acceleration 
+body_acc_y
+	numeric, identifies the estimated y-axis body acceleration 
+body_acc_z
+	numeric, identifies the estimated z-axis body acceleration 
+body_gyro_x
+	numeric, identifies the estimated x-axis acceleration from the accelerometer
+body_gyro_y
+	numeric, identifies the estimated y-axis acceleration from the accelerometer
+body_gyro_z
+	numeric, identifies the estimated z-axis acceleration from the accelerometer
+total_acc_x
+	numeric, identifies the total x-axis acceleration 
+total_acc_y
+	numeric, identifies the total y-axis acceleration 
+total_acc_z
+	numeric, identifies the total z-axis acceleration 
+activity
+	numeric, identifies the activity code. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, 		SITTING, STANDING, LAYING)
+activity_name
+	character, links the class labels with their activity name
+mean
+	vector, contains the mean values of each of the columns mentioned above (excluding the activity_name)
+stdev
+	vector, contains the stdev values of each of the columns mentioned above (excluding the activity_name)
+data_num
+	data frame, contains the final data set, processed, with only numeric values
+data_sec
+	data frame, contains the second data set, with the average of each variable per activity/per subject
+
+Temp variables:
+
+body_acc_#_train, body_gyro_#_train, total_acc_#_train,
+body_acc_#_test, body_gyro_#_test, total_acc_#_test  # in {x,y,z}
+	list, used to read the lines from the txt files
+data
+	data frame, contains the merged data, unprocessed
+d
+	vector, used to store the mean of each variable per activity/per subject
+test
+	data frame, subset of the data_num for each subject
+test_a
+	data frame, subset of the test for each activity
+
