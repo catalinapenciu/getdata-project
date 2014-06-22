@@ -36,7 +36,7 @@ data_num
 	data frame, contains the final data set, processed, with only numeric values
 data_sec
 	data frame, contains the second data set, with the average of each variable per activity/per subject
-
+=================================================================================================================
 Temp variables:
 
 body_acc_#_train, body_gyro_#_train, total_acc_#_train,
