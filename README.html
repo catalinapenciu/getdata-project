@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title></title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<p>The following steps summarize the commands applied to the given data collections, in order to produce the final data set:</p>
+
+<pre><code>Step1:Reading the txt files into variables and creating the corresponding data frames(df1-training data set, df2- test data set)
+-df1 is initialized as a data frame (will store the training data frame)
+-read all the data from the .txt files
+        -numeric data is stored in vectors, using the scan function
+        -all other data is +read using the readLines function
+               +transformed into numeric data using the as.numeric function
+               +all NAs omitted using the na.omit function
+-after reading each type of data (i.e. body_acc_x_train, etc), their correspondent vector is binded to the training data frame (using cbind)
+-all of the above are repeted for the test data set (df2 stores the required info)
+</code></pre>
+
+<p>Step2: At this point, we have 2 different data sets, with corresponding columns for each of the txt files in the data collection, that have corresponding names (_train and _test, respectively).</p>
+
+<pre><code>Step3: Merging the two data frames into a single data set requires the following operations:
+    -rename columns with more generic names (i.e. from &quot;body_acc_x_train&quot; to &quot;body_acc_x&quot;)
+    -merge the two data sets using the rbind function (the final data set is &quot;data&quot;)
+    -order the &quot;data&quot; data set based on the subject column
+    -in order to use descriptive activity names to name the activities in the data set, a new column &quot;activity_name&quot; is inserted (matches each activity code with its corresponding activity name)
+</code></pre>
+
+<p>Step4:Extracting only the measurements on the mean and standard deviation for each measurement 
+        -two vectors are initialized - &ldquo;mean&rdquo; and &ldquo;stdev&rdquo;
+        -a subset of the &ldquo;data&rdquo; data set is extracted, that contains only numeric values (removes the activity_name column)
+        -their values are populated by using the colMeans and apply( , , sd) functions</p>
+
+<pre><code>Step5:Creating a second, independent tidy data set with the average of each variable for each activity and each subject
+    -orders the data set based on subject and activity
+    -initializes empty frame &quot;data_sec&quot; with the same structure as the &quot;data&quot; data set
+    -intializes the mean vector &quot;d&quot;
+    -for every subject, there will be a &quot;test&quot; subset of data corresponding to that subject that will be further subset-ed for each activity (&quot;test_a&quot;)
+    -colMeans will compute the column means and store it in &quot;d&quot;
+    -rbind will populate the empty data frame with a second, independent, data set containing the average of each variable for each activity and each subject
+</code></pre>
+
+</body>
+
+</html>
+
