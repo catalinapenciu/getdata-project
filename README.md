@@ -9,8 +9,9 @@ Step1:Reading the txt files into variables and creating the corresponding data f
 			   +all NAs omitted using the na.omit function
 -after reading each type of data (i.e. body_acc_x_train, etc), their correspondent vector is binded to the training data frame (using cbind)
 -all of the above are repeted for the test data set (df2 stores the required info)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~			  Step2: At this point, we have 2 different data sets, with corresponding columns for each of the txt files in the data collection, that have corresponding names (_train and _test, respectively).
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Step2: At this point, we have 2 different data sets, with corresponding columns for each of the txt files in the data collection, that have corresponding names (_train and _test, respectively).
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Step3: Merging the two data frames into a single data set requires the following operations:
 	$rename columns with more generic names (i.e. from "body_acc_x_train" to "body_acc_x")
 	$merge the two data sets using the rbind function (the final data set is "data")
