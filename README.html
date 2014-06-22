@@ -155,19 +155,21 @@ hr {
 -all of the above are repeted for the test data set (df2 stores the required info)
 </code></pre>
 
-<p>Step2: At this point, we have 2 different data sets, with corresponding columns for each of the txt files in the data collection, that have corresponding names (_train and _test, respectively).</p>
+<pre><code>Step2: At this point, we have 2 different data sets, with corresponding columns for each of the txt files in the data collection, that have corresponding names (_train and _test, respectively).
+</code></pre>
 
 <pre><code>Step3: Merging the two data frames into a single data set requires the following operations:
-    -rename columns with more generic names (i.e. from &quot;body_acc_x_train&quot; to &quot;body_acc_x&quot;)
+        -rename columns with more generic names (i.e. from &quot;body_acc_x_train&quot; to &quot;body_acc_x&quot;)
     -merge the two data sets using the rbind function (the final data set is &quot;data&quot;)
     -order the &quot;data&quot; data set based on the subject column
     -in order to use descriptive activity names to name the activities in the data set, a new column &quot;activity_name&quot; is inserted (matches each activity code with its corresponding activity name)
 </code></pre>
 
-<p>Step4:Extracting only the measurements on the mean and standard deviation for each measurement 
+<pre><code>Step4:Extracting only the measurements on the mean and standard deviation for each measurement 
         -two vectors are initialized - &ldquo;mean&rdquo; and &ldquo;stdev&rdquo;
         -a subset of the &ldquo;data&rdquo; data set is extracted, that contains only numeric values (removes the activity_name column)
-        -their values are populated by using the colMeans and apply( , , sd) functions</p>
+        -their values are populated by using the colMeans and apply( , , sd) functions
+</code></pre>
 
 <pre><code>Step5:Creating a second, independent tidy data set with the average of each variable for each activity and each subject
     -orders the data set based on subject and activity

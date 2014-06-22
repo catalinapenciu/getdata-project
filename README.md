@@ -13,7 +13,7 @@ Step1:Reading the txt files into variables and creating the corresponding data f
 Step2: At this point, we have 2 different data sets, with corresponding columns for each of the txt files in the data collection, that have corresponding names (_train and _test, respectively).
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Step3: Merging the two data frames into a single data set requires the following operations:
-	-rename columns with more generic names (i.e. from "body_acc_x_train" to "body_acc_x")
+        -rename columns with more generic names (i.e. from "body_acc_x_train" to "body_acc_x")
 	-merge the two data sets using the rbind function (the final data set is "data")
 	-order the "data" data set based on the subject column
 	-in order to use descriptive activity names to name the activities in the data set, a new column "activity_name" is inserted (matches each activity code with its corresponding activity name)
