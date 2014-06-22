@@ -1,14 +1,14 @@
 The following steps summarize the commands applied to the given data collections, in order to produce the final data set:
 ======================================================================================================
 Step1:Reading the txt files into variables and creating the corresponding data frames(df1-training data set, df2- test data set)
-#df1 is initialized as a data frame (will store the training data frame)
-#read all the data from the .txt files
+-df1 is initialized as a data frame (will store the training data frame)
+-read all the data from the .txt files
 	$numeric data is stored in vectors, using the scan function
 	$all other data is +read using the readLines function
 			   +transformed into numeric data using the as.numeric function
 			   +all NAs omitted using the na.omit function
-#after reading each type of data (i.e. body_acc_x_train, etc), their correspondent vector is binded to the training data frame (using cbind)
-#all of the above are repeted for the test data set (df2 stores the required info)
+-after reading each type of data (i.e. body_acc_x_train, etc), their correspondent vector is binded to the training data frame (using cbind)
+-all of the above are repeted for the test data set (df2 stores the required info)
 ======================================================================================================			   
 Step2: At this point, we have 2 different data sets, with corresponding columns for each of the txt files in the data collection, that have corresponding names (_train and _test, respectively).
 
